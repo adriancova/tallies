@@ -2,16 +2,12 @@
 	import ChevronDown from '$lib/assets/icons/tabler/chevron-down.svg?raw';
 	import PigMoney from '$lib/assets/icons/tabler/pig-money.svg?raw';
 	import Puzzle from '$lib/assets/icons/tabler/puzzle.svg?raw';
-	import CloudLock from '$lib/assets/icons/tabler/cloud-lock.svg?raw';
 	import MoodDollar from '$lib/assets/icons/tabler/mood-dollar.svg?raw';
-	import Gift from '$lib/assets/icons/tabler/gift.svg?raw';
-	import LayersSubstract from '$lib/assets/icons/tabler/layers-substract.svg?raw';
 	import SourceCode from '$lib/assets/icons/tabler/source-code.svg?raw';
 	import Google from '$lib/assets/icons/google.svg?raw';
 	import Github from '$lib/assets/icons/github.svg?raw';
 	import Svelte from '$lib/assets/icons/svelte.svg?raw';
 	import ShadcnSvelte from '$lib/assets/icons/shadcn-svelte.svg?raw';
-	import TwentyFourHourss from '$lib/assets/icons/tabler/24-hours.svg?raw';
 	import Mailbox from '$lib/assets/icons/tabler/mailbox.svg?raw';
 	import Menu from '$lib/assets/icons/tabler/menu-2.svg?raw';
 	import Sun from '$lib/assets/icons/tabler/sun.svg?raw';
@@ -46,21 +42,9 @@
 			box: 24,
 			svg: SourceCode
 		},
-		layersSubstract: {
-			box: 24,
-			svg: LayersSubstract
-		},
-		gift: {
-			box: 24,
-			svg: Gift
-		},
 		moodDollar: {
 			box: 24,
 			svg: MoodDollar
-		},
-		cloudLock: {
-			box: 24,
-			svg: CloudLock
 		},
 		puzzle: {
 			box: 24,
@@ -73,10 +57,6 @@
 		chevronDown: {
 			box: 24,
 			svg: ChevronDown
-		},
-		'24hours': {
-			box: 24,
-			svg: TwentyFourHourss
 		},
 		mailbox: {
 			box: 24,
