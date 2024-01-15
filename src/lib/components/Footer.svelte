@@ -9,7 +9,7 @@
 		class="flex w-full max-w-[1596px] flex-col items-center justify-center gap-5 md:flex-row md:justify-between"
 	>
 		<div
-			class="my-auto flex flex-row flex-wrap items-stretch justify-between gap-5 py-2.5 max-md:max-w-full"
+			class="my-auto flex flex-row flex-wrap items-stretch justify-between gap-5 pt-2.5 max-md:max-w-full"
 		>
 			<div
 				class="grow whitespace-nowrap text-lg font-medium leading-6 tracking-normal text-white max-md:w-full max-md:text-center"
