@@ -32,7 +32,7 @@ let lucia: Lucia<
 >;
 export function getLucia(D1: D1Database) {
 	if (!lucia) {
-		const adapter = D1Adapter(D1, {
+		const adapter = new D1Adapter(D1, {
 			user: 'user',
 			session: 'session',
 			key: 'key'
