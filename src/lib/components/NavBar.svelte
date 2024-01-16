@@ -1,8 +1,8 @@
 <script lang="ts">
+	import DropDownAvatar from './DropDownAvatar.svelte';
 	import { cn } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
 	import { page } from '$app/stores';
-	import { enhance } from '$app/forms';
 	import LightSwitch from './ui/light-switch/light-switch.svelte';
 	import Logo from './Logo.svelte';
 
@@ -32,9 +32,7 @@
 		</div>
 		<div class="flex items-center justify-end gap-2 max-sm:ml-auto">
 			{#if $page.data.user}
-				<form method="post" action="/auth/sign-out" use:enhance>
-					<Button type="submit" variant="destructive" size="sm">Cerrar sesión</Button>
-				</form>
+				<DropDownAvatar />
 			{:else}
 				<Button
 					href="/auth/sign-in"
