@@ -9,7 +9,7 @@
 	};
 </script>
 
-<div class="container py-12 md:py-32">
+<div class="container py-12 md:py-24">
 	<Card.Root class="mx-auto max-w-4xl">
 		<Card.Header class="space-y-1">
 			<Card.Title class="text-2xl">Iniciar Sesión</Card.Title>
@@ -50,7 +50,11 @@
 					<Label for="password">Password</Label>
 					<Input type="password" id="password" required />
 				</div>
-				<div class="text-end">
+
+				<div class="flex flex-row justify-between">
+					<Button on:click={handleForgotPass} variant="ghost" class="p-0 text-sm underline">
+						¿Olvidaste tu contraseña?
+					</Button>
 					<a href="/auth/sign-up" class="pt-2 text-sm underline"> ¿No tienes cuenta? Regístrate </a>
 				</div>
 
