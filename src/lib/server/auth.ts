@@ -8,7 +8,7 @@ import {
 import { Lucia } from 'lucia';
 import { dev } from '$app/environment';
 import { GitHub, Google } from 'arctic';
-import { d1 } from '@lucia-auth/adapter-sqlite';
+import { D1Adapter } from '@lucia-auth/adapter-sqlite';
 import type { GitHubUser } from '../../routes/auth/github/callback/+server';
 import type { GoogleUser } from '../../routes/auth/google/callback/+server';
 
