@@ -1,4 +1,4 @@
-import { github, lucia } from '$lib/server/auth';
+import { github, getLucia } from '$lib/server/auth';
 import { OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
 
@@ -30,6 +30,7 @@ export async function GET(event: RequestEvent): Promise<Response> {
 		});
 		const githubUser: GitHubUser = await githubUserResponse.json();
 		const existingUser = await getUserByGithubId(DB, githubUser.id);
+		const lucia = getLucia(DB);
 
 		if (existingUser) {
 			const session = await lucia.createSession(existingUser.id, {});

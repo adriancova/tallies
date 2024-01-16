@@ -6,8 +6,6 @@
 	import LightSwitch from './ui/light-switch/light-switch.svelte';
 	import Logo from './Logo.svelte';
 
-	let { globalClicks } = $props<{ globalClicks: number }>();
-
 	const navItems = [
 		{ label: 'Inicio', href: '/' },
 		{ label: 'Tus Tallies & Grupos', href: '/tallies' },
@@ -19,7 +17,7 @@
 	class="sticky top-0 z-50 w-full bg-border shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
 	<div class={`flex h-14 items-center justify-between sm:container max-sm:px-4 sm:h-32 `}>
-		<Logo {globalClicks} />
+		<Logo />
 
 		<div class="mx-auto max-sm:hidden">
 			<nav
@@ -33,7 +31,7 @@
 			</nav>
 		</div>
 		<div class="flex items-center justify-end gap-2 max-sm:ml-auto">
-			{#if $page.session}
+			{#if $page.data.user}
 				<form method="post" action="/auth/sign-out" use:enhance>
 					<Button type="submit" variant="destructive" size="sm">Cerrar sesión</Button>
 				</form>
