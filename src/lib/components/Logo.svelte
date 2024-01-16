@@ -5,7 +5,7 @@
 
 	let { globalClicks } = $props<{ globalClicks: number }>();
 
-	const userClicksCounter = createLocalStorageCounter('userClicks');
+	const userClicksCounter = createLocalStorageCounter('clicksLogo');
 
 	let newClicks = $state(0);
 	let timer: any;
