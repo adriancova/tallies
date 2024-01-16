@@ -19,6 +19,7 @@
 	import Reset from '$lib/assets/icons/tabler/reset.svg?raw';
 	import ArrowRight from '$lib/assets/icons/tabler/arrow-right.svg?raw';
 	import ArrowLeft from '$lib/assets/icons/tabler/arrow-left.svg?raw';
+	import Circle from '$lib/assets/icons/lucide/circle.svg?raw';
 	export let name: keyof typeof icons;
 	export let width = '1rem';
 	export let height = '1rem';
@@ -107,6 +108,10 @@
 		arrowLeft: {
 			box: 24,
 			svg: ArrowLeft
+		},
+		circle: {
+			box: 24,
+			svg: Circle
 		}
 	} as const;
 	let display = icons[name];
