@@ -16,6 +16,7 @@
 	import World from '$lib/assets/icons/tabler/world.svg?raw';
 	import BellPlus from '$lib/assets/icons/tabler/bell-plus.svg?raw';
 	import BellMinus from '$lib/assets/icons/tabler/bell-minus.svg?raw';
+	import Reset from '$lib/assets/icons/tabler/reset.svg?raw';
 	export let name: keyof typeof icons;
 	export let width = '1rem';
 	export let height = '1rem';
@@ -92,6 +93,10 @@
 		bellMinus: {
 			box: 24,
 			svg: BellMinus
+		},
+		reset: {
+			box: 24,
+			svg: Reset
 		}
 	} as const;
 	let display = icons[name];
