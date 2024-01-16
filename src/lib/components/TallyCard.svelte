@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { toast } from '@zerodevx/svelte-toast';
 	import { cn } from '$lib/utils';
 	import { createLocalStorageCounter } from './../state.svelte';
@@ -7,29 +8,47 @@
 	import Icon from '$lib/components/ui/Icon.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip';
 	import * as Card from '$lib/components/ui/card/index.js';
+	import { onMount } from 'svelte';
 
-	let {
-		tallyTitle,
-		tallyDescription,
-		tallyTracked = false,
-		tallyCount,
-		isGlobal = false
-	} = $props<{
+	let { tallyTitle, isGlobal = false } = $props<{
 		tallyTitle: string;
-		tallyDescription: string;
-		tallyTracked?: boolean;
-		tallyCount?: number;
 		isGlobal?: boolean;
 	}>();
 
-	let count = $state(tallyCount ?? 0);
+	let tallyData = $state<any>({});
+	let tallyTracking = $state<any>({ tracked: false });
+
+	const getTallyData = async (tallyTitle: string) => {
+		tallyData = await fetch(`/api/tally/${tallyTitle}`);
+		if (isGlobal) {
+			tallyTracking = await fetch(`/api/tally/${tallyTitle}/global`);
+		} else if ($page.data.user) {
+			tallyTracking = await fetch(`/api/tally/${tallyTitle}/${$page.data.user.id}`);
+			const tallyTracked = tallyTitle.includes('🔔');
+			const tallyCount = tallyTitle.split(' - ')[0].split(' ')[1];
+
+			return { tallyDescription: tallyData.description, tallyTracked, tallyCount };
+		} else {
+			const tallyTrackingCount = localStorage.getItem(tallyTitle);
+			return {
+				tallyDescription: tallyData.description,
+				tallyTracked: true,
+				tallyCount: tallyTrackingCount ? tallyTrackingCount : 0
+			};
+		}
+		console.log('tt', tallyTracking);
+	};
+
+	onMount(async () => {
+		await getTallyData(tallyTitle);
+	});
 
 	const ToggleTally = () => {
-		tallyTracked = !tallyTracked;
+		tallyTracking.tracked = !tallyTracking.tracked;
 
 		toast.pop();
 		toast.push(
-			`<strong>${tallyTitle}</strong> <br/> ${tallyTracked ? 'Añadido a tus tallies' : 'Eliminado de tus tallies'}`,
+			`<strong>${tallyTitle}</strong> <br/> ${tallyTracking.tracked ? 'Añadido a tus tallies' : 'Eliminado de tus tallies'}`,
 			{}
 		);
 	};
