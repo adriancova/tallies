@@ -2,17 +2,16 @@ import type { LayoutLoad } from './$types';
 import { browser } from '$app/environment';
 
 export const load: LayoutLoad = async (event) => {
+	const globalClicks = 20;
 	const lsTallies = [];
-	const serverTallies = [];
 	if (browser) {
-		lsTallies.push(JSON.parse(localStorage.getItem('tallies') ?? '[]'));
+		const browserTallies = JSON.parse(localStorage.getItem('tallies') ?? '[]');
+		console.log('browserTallies', browserTallies);
+		lsTallies.push(...browserTallies);
 	}
-	if (event.locals?.session) {
-		serverTallies.push('server tallies');
-	}
-	const tallies = [...lsTallies, ...serverTallies];
+	const tallies = [...lsTallies, ...event.data.serverTallies];
 	if (browser) {
-		localStorage.setItem('tallies', JSON.stringify(tallies));
+		localStorage.setItem('tallies', JSON.stringify([]));
 	}
-	return { tallies };
+	return { tallies, globalClicks };
 };

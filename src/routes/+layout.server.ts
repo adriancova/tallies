@@ -1,8 +1,9 @@
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async () => {
-	const globalClicks = 20;
-	return {
-		globalClicks
-	};
-}) satisfies LayoutServerLoad;
+export const load: LayoutServerLoad = async (event) => {
+	const serverTallies = [];
+	if (event.locals?.session) {
+		serverTallies.push('server tallies');
+	}
+	return { serverTallies };
+};
