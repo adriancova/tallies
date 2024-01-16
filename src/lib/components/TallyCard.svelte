@@ -78,9 +78,7 @@
 						>
 					</Tooltip.Trigger>
 					<Tooltip.Content>
-						<p class="text-center text-xs text-muted-foreground">
-							Suma de todos los usuarios de tally.
-						</p>
+						<p class="text-center text-xs text-muted-foreground">Suma de todos los usuarios.</p>
 					</Tooltip.Content>
 				</Tooltip.Root>
 			{/if}
