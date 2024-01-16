@@ -42,6 +42,7 @@
 	"dependencies": {
 		"bits-ui": "^0.14.0",
 		"clsx": "^2.1.0",
+		"embla-carousel-autoplay": "8.0.0-rc19",
 		"embla-carousel-svelte": "8.0.0-rc19",
 		"lucide-svelte": "^0.309.0",
 		"mode-watcher": "^0.1.2",
