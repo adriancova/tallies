@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { cn } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
 	import { page } from '$app/stores';
 	import { enhance } from '$app/forms';
@@ -19,7 +20,12 @@
 					<Button type="submit" variant="destructive" size="sm">Cerrar sesión</Button>
 				</form>
 			{:else}
-				<Button href="/auth/sign-in" variant="default" size="sm">Crea una cuenta</Button>
+				<Button
+					href="/auth/sign-in"
+					variant="default"
+					size="sm"
+					class={cn({ hidden: $page.url.pathname.startsWith('/auth') })}>Inicia sesión</Button
+				>
 			{/if}
 			<LightSwitch />
 		</div>
