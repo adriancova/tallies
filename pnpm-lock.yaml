@@ -29,9 +29,6 @@ dependencies:
   lucia:
     specifier: 3.0.0-beta.14
     version: 3.0.0-beta.14(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2)
-  lucide-svelte:
-    specifier: ^0.309.0
-    version: 0.309.0(svelte@5.0.0-next.35)
   mode-watcher:
     specifier: ^0.1.2
     version: 0.1.2(svelte@5.0.0-next.35)
@@ -2353,14 +2350,6 @@ packages:
       - quill-delta
       - rxjs
       - tslib
-    dev: false
-
-  /lucide-svelte@0.309.0(svelte@5.0.0-next.35):
-    resolution: {integrity: sha512-+t85+5Y696FVDoJHiiMhJGalv+UiWUX46gMudOQfYrVGjsyC2MGSZRNAGAHkdykA4RJSh/wUtSgnTgCmd0Swvw==}
-    peerDependencies:
-      svelte: '>=3 <5'
-    dependencies:
-      svelte: 5.0.0-next.35
     dev: false
 
   /magic-string@0.30.5:

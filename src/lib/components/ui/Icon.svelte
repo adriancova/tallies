@@ -17,6 +17,8 @@
 	import BellPlus from '$lib/assets/icons/tabler/bell-plus.svg?raw';
 	import BellMinus from '$lib/assets/icons/tabler/bell-minus.svg?raw';
 	import Reset from '$lib/assets/icons/tabler/reset.svg?raw';
+	import ArrowRight from '$lib/assets/icons/tabler/arrow-right.svg?raw';
+	import ArrowLeft from '$lib/assets/icons/tabler/arrow-left.svg?raw';
 	export let name: keyof typeof icons;
 	export let width = '1rem';
 	export let height = '1rem';
@@ -97,6 +99,14 @@
 		reset: {
 			box: 24,
 			svg: Reset
+		},
+		arrowRight: {
+			box: 24,
+			svg: ArrowRight
+		},
+		arrowLeft: {
+			box: 24,
+			svg: ArrowLeft
 		}
 	} as const;
 	let display = icons[name];

@@ -11,7 +11,7 @@ export const load: LayoutLoad = async (event) => {
 	}
 	const tallies = [...lsTallies, ...event.data.serverTallies];
 	if (browser) {
-		localStorage.setItem('tallies', JSON.stringify([]));
+		localStorage.setItem('tallies', JSON.stringify(tallies));
 	}
 	return { tallies, globalClicks };
 };
