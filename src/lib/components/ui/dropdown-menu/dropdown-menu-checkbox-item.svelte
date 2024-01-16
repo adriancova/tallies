@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Icon } from '$lib/components/ui/Icon.svelte';
+	import Icon from '$lib/components/ui/Icon.svelte';
 	import { DropdownMenu as DropdownMenuPrimitive } from 'bits-ui';
 	import { cn } from '$lib/utils';
 
