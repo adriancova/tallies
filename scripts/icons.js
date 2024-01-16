@@ -4,8 +4,8 @@ import path from 'path';
 import url from 'url';
 const dirname = path.dirname(url.fileURLToPath(import.meta.url));
 
-const iconsDir = path.join(dirname, 'src/lib/assets/icons');
-const iconComponentPath = path.join(dirname, 'src/lib/components/ui/Icon.svelte');
+const iconsDir = path.join(dirname, '../src/lib/assets/icons');
+const iconComponentPath = path.join(dirname, '../src/lib/components/ui/Icon.svelte');
 
 // Function to convert kebab-case to camelCase
 const toCamelCase = (str) => {
