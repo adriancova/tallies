@@ -19,16 +19,18 @@
 	let tallyTracking = $state<any>({ tracked: false });
 
 	const getTallyData = async (tallyTitle: string) => {
-		tallyData = await fetch(`/api/tally/${tallyTitle}`);
+		const user = $page.data.user;
+
 		if (isGlobal) {
-			tallyTracking = await fetch(`/api/tally/${tallyTitle}/global`);
-		} else if ($page.data.user) {
-			tallyTracking = await fetch(`/api/tally/${tallyTitle}/${$page.data.user.id}`);
+			tallyData = await fetch(`/api/tally?tallyId=${tallyTitle}&userId=global`);
+		} else if (user && user.id) {
+			tallyData = await fetch(`/api/tally?tallyId=${tallyTitle}&userId=${$page.data.user.id}`);
 			const tallyTracked = tallyTitle.includes('🔔');
 			const tallyCount = tallyTitle.split(' - ')[0].split(' ')[1];
 
 			return { tallyDescription: tallyData.description, tallyTracked, tallyCount };
 		} else {
+			tallyData = await fetch(`/api/tally?tallyId=${tallyTitle}`);
 			const tallyTrackingCount = localStorage.getItem(tallyTitle);
 			return {
 				tallyDescription: tallyData.description,
