@@ -26,18 +26,22 @@
 		newClicks++;
 		toast.pop();
 		toast.push(
-			`<strong>+1 click al logo!</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales al logo. <br/> (${userClicksCounter.count} tuyos!)`
+			`<strong>+1 click al logo.</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales. <br/> (${userClicksCounter.count} tuyos!)`
 		);
 		updateClicksToApi();
 	};
 </script>
 
-<button
-	class="flex flex-row items-center justify-center gap-2 py-4 sm:gap-4"
-	on:click={handleLogoClick}
->
-	<h1 class="scroll-m-20 text-lg font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
-		¡Tallies!
-	</h1>
-	<img src={logo} alt="logo" class="h-8 rounded-full bg-white sm:h-10 lg:h-12" />
-</button>
+<div class="flex flex-col">
+	<button
+		class="flex flex-row items-center justify-center gap-2 py-4 sm:gap-4"
+		on:click={handleLogoClick}
+	>
+		<h1 class="scroll-m-20 text-lg font-extrabold tracking-tight sm:text-4xl lg:text-5xl">
+			¡Tallies!
+		</h1>
+		<img src={logo} alt="logo" class="h-8 rounded-full bg-white sm:h-10 lg:h-12" />
+	</button>
+
+	<p class="text-sm italic leading-4">tally: Conteo o monto actual</p>
+</div>
