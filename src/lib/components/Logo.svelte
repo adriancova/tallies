@@ -1,8 +1,37 @@
 <script lang="ts">
+	import { createLocalStorageCounter } from '$lib/state.svelte';
+	import { page } from '$app/stores';
+	import { toast } from '@zerodevx/svelte-toast';
 	import logo from '$lib/assets/images/logo.svg';
 
+	let { globalClicks } = $props<{ globalClicks: number }>();
+
+	const userClicksCounter = createLocalStorageCounter('userClicks');
+
 	const handleLogoClick = () => {
-		console.log('howdy');
+		userClicksCounter.increment();
+		toast.pop();
+		toast.push(
+			`<strong>Click al logo registrado!</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales al logo. (${userClicksCounter.count} tuyos!)`
+		);
+		if ($page.session) {
+			// call api to update user clicks
+			console.log('pending');
+		} else {
+			const userClicks = window.localStorage.getItem('tallies:userClicks');
+			if (userClicks !== null) {
+				const userClicksObj = JSON.parse(userClicks);
+				userClicksObj.userClicks = String(Number(userClicksObj.userClicks) + 1);
+				window.localStorage.setItem('tallies:userClicks', JSON.stringify(userClicksObj));
+			} else {
+				const userClicksObj = {
+					id: 'logoClicks',
+					label: 'Clicks al logo',
+					userClicks: '1'
+				};
+				window.localStorage.setItem('tallies', '1');
+			}
+		}
 	};
 </script>
 
