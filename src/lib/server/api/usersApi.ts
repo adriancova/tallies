@@ -2,7 +2,6 @@ import { error } from '@sveltejs/kit';
 import type { NewUser, User } from '../db/schema';
 import type { GitHubUser } from '../../../routes/auth/github/callback/+server';
 import type { GoogleUser } from '../../../routes/auth/google/callback/+server';
-import type { D1Database } from '@cloudflare/workers-types';
 import appLog from '../utils/logger';
 
 const generateApiKeyWithSha256 = async () => {

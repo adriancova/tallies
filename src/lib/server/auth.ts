@@ -11,7 +11,6 @@ import { GitHub, Google } from 'arctic';
 import { D1Adapter } from '@lucia-auth/adapter-sqlite';
 import type { GitHubUser } from '../../routes/auth/github/callback/+server';
 import type { GoogleUser } from '../../routes/auth/google/callback/+server';
-import type { D1Database } from '@cloudflare/workers-types';
 
 if (!GITHUB_ID || !GITHUB_SECRET) {
 	throw new Error('Missing GitHub config values');
