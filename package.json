@@ -13,6 +13,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20231218.0",
 		"@sveltejs/adapter-cloudflare": "^3.0.2",
 		"@sveltejs/kit": "^2.3.2",
 		"@sveltejs/vite-plugin-svelte": "^3.0.1",
@@ -40,12 +41,17 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@logtail/edge": "^0.4.19",
+		"@lucia-auth/adapter-sqlite": "3.0.0-beta.12",
+		"arctic": "^0.10.4",
 		"bits-ui": "^0.14.0",
 		"clsx": "^2.1.0",
 		"embla-carousel-autoplay": "8.0.0-rc19",
 		"embla-carousel-svelte": "8.0.0-rc19",
+		"lucia": "3.0.0-beta.14",
 		"lucide-svelte": "^0.309.0",
 		"mode-watcher": "^0.1.2",
+		"oslo": "^0.27.1",
 		"tailwind-merge": "^2.2.0",
 		"tailwind-variants": "^0.1.20"
 	}
