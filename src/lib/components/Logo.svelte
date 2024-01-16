@@ -26,7 +26,7 @@
 		newClicks++;
 		toast.pop();
 		toast.push(
-			`<strong>+1 click al logo.</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales. <br/> (${userClicksCounter.count} tuyos!)`
+			`<strong>+1 click al logo.</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales. (${userClicksCounter.count} tuyos)`
 		);
 		updateClicksToApi();
 	};
