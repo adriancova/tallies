@@ -19,7 +19,7 @@
 					<Button type="submit" variant="destructive" size="sm">Cerrar sesión</Button>
 				</form>
 			{:else}
-				<Button href="/dashboard" variant="default" size="sm">Crea una cuenta</Button>
+				<Button href="/auth/sign-in" variant="default" size="sm">Crea una cuenta</Button>
 			{/if}
 			<LightSwitch />
 		</div>
