@@ -13,6 +13,8 @@
 	import Sun from '$lib/assets/icons/tabler/sun.svg?raw';
 	import Moon from '$lib/assets/icons/tabler/moon.svg?raw';
 	import X from '$lib/assets/icons/tabler/x.svg?raw';
+	import World from '$lib/assets/icons/tabler/world.svg?raw';
+	import Plus from '$lib/assets/icons/tabler/plus.svg?raw';
 	export let name: keyof typeof icons;
 	export let width = '1rem';
 	export let height = '1rem';
@@ -77,6 +79,14 @@
 		x: {
 			box: 24,
 			svg: X
+		},
+		world: {
+			box: 24,
+			svg: World
+		},
+		plus: {
+			box: 24,
+			svg: Plus
 		}
 	} as const;
 	let display = icons[name];
