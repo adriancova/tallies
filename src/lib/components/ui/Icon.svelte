@@ -14,7 +14,8 @@
 	import Moon from '$lib/assets/icons/tabler/moon.svg?raw';
 	import X from '$lib/assets/icons/tabler/x.svg?raw';
 	import World from '$lib/assets/icons/tabler/world.svg?raw';
-	import Plus from '$lib/assets/icons/tabler/plus.svg?raw';
+	import BellPlus from '$lib/assets/icons/tabler/bell-plus.svg?raw';
+	import BellMinus from '$lib/assets/icons/tabler/bell-minus.svg?raw';
 	export let name: keyof typeof icons;
 	export let width = '1rem';
 	export let height = '1rem';
@@ -84,9 +85,13 @@
 			box: 24,
 			svg: World
 		},
-		plus: {
+		bellPlus: {
 			box: 24,
-			svg: Plus
+			svg: BellPlus
+		},
+		bellMinus: {
+			box: 24,
+			svg: BellMinus
 		}
 	} as const;
 	let display = icons[name];
