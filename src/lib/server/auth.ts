@@ -8,7 +8,7 @@ import {
 import { Lucia } from 'lucia';
 import { dev } from '$app/environment';
 import { GitHub, Google } from 'arctic';
-import { D1Adapter } from '@lucia-auth/adapter-sqlite';
+import { d1 } from '@lucia-auth/adapter-sqlite';
 import type { GitHubUser } from '../../routes/auth/github/callback/+server';
 import type { GoogleUser } from '../../routes/auth/google/callback/+server';
 
@@ -32,9 +32,10 @@ let lucia: Lucia<
 >;
 export function getLucia(D1: D1Database) {
 	if (!lucia) {
-		const adapter = new D1Adapter(D1, {
+		const adapter = d1(D1, {
 			user: 'user',
-			session: 'session'
+			session: 'session',
+			key: 'key'
 		});
 		lucia = new Lucia(adapter, {
 			sessionCookie: {
