@@ -1,9 +1,8 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { createLocalStorageCounter } from '$lib/state.svelte';
 	import { toast } from '@zerodevx/svelte-toast';
 	import logo from '$lib/assets/images/logo.svg';
-
-	let { globalClicks } = $props<{ globalClicks: number }>();
 
 	const userClicksCounter = createLocalStorageCounter('clicksLogo');
 
@@ -26,7 +25,7 @@
 		newClicks++;
 		toast.pop();
 		toast.push(
-			`<strong>+1 click al logo.</strong> <br/> ${globalClicks + userClicksCounter.count} clicks globales. (${userClicksCounter.count} tuyos)`
+			`<strong>+1 click al logo.</strong> <br/> ${$page.data.globalClicks + userClicksCounter.count} clicks globales. (${userClicksCounter.count} tuyos)`
 		);
 		updateClicksToApi();
 	};

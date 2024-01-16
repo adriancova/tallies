@@ -1,5 +1,4 @@
 <script>
-	import { page } from '$app/stores';
 	import { ModeWatcher } from 'mode-watcher';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	import NavBar from './../lib/components/NavBar.svelte';
@@ -10,7 +9,7 @@
 <ModeWatcher />
 <SvelteToast />
 <div class="relative flex min-h-screen flex-col" id="page">
-	<NavBar globalClicks={$page.data.globalClicks} />
+	<NavBar />
 	<div class="flex-1">
 		<slot />
 	</div>
