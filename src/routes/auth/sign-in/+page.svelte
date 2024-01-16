@@ -51,7 +51,7 @@
 					<Input type="password" id="password" required />
 				</div>
 
-				<div class="flex flex-row justify-between">
+				<div class="flex flex-col justify-between sm:flex-row">
 					<Button on:click={handleForgotPass} variant="ghost" class="p-0 text-sm underline">
 						¿Olvidaste tu contraseña?
 					</Button>
