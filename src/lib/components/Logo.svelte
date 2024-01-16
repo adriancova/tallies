@@ -43,5 +43,5 @@
 		<img src={logo} alt="logo" class="h-8 rounded-full bg-white sm:h-10 lg:h-12" />
 	</button>
 
-	<p class="text-sm italic leading-4">tally: Conteo o monto actual</p>
+	<p class="text-sm italic leading-4 max-sm:hidden">tally: Conteo o monto actual</p>
 </div>
