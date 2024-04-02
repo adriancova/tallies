@@ -1,7 +1,9 @@
 import type { RequestEvent } from '@sveltejs/kit';
 
 export async function GET(event: RequestEvent): Promise<Response> {
-	const { tallyId, userId } = event.params;
+	const tallyId = event.url.searchParams.get('tallyId');
+	const userId = event.url.searchParams.get('userId');
+	console.log('ke pedo', tallyId, userId);
 	const respData = await event.platform?.env.DB.prepare(
 		'SELECT * FROM tally_count WHERE tally_name = ? AND user_id = ?'
 	)
