@@ -42,7 +42,7 @@
 	};
 
 	onMount(async () => {
-		await getTallyData(tallyTitle);
+		tallyData = await getTallyData(tallyTitle);
 	});
 
 	const ToggleTally = () => {
@@ -61,9 +61,9 @@
 <Card.Root class="relative w-[300px]">
 	<Card.Header class="pb-0">
 		<Card.Title>{tallyTitle}</Card.Title>
-		<Card.Description>{tallyDescription}</Card.Description>
+		<Card.Description>{tallyData.tallyDescription}</Card.Description>
 		<Button class="absolute right-3 top-2 p-0" variant="ghost" on:click={ToggleTally}>
-			{#if tallyTracked}
+			{#if tallyData.tallyTracked}
 				<Icon name="bellMinus" class="h-8 w-8 text-primary hover:text-white" />
 			{:else}
 				<Icon name="bellPlus" class="h-8 w-8 hover:text-primary" />

@@ -2,7 +2,6 @@ import type { RequestEvent } from '@sveltejs/kit';
 
 export async function GET(event: RequestEvent): Promise<Response> {
 	const { tallyId, userId } = event.params;
-	console.log('aver si muy vergas', tallyId);
 	const respData = await event.platform?.env.DB.prepare(
 		'SELECT * FROM tally_count WHERE tally_name = ? AND user_id = ?'
 	)
@@ -18,7 +17,6 @@ export async function GET(event: RequestEvent): Promise<Response> {
 
 export async function POST(event: RequestEvent): Promise<Response> {
 	const { tallyId, userId, tallyCount } = event.params;
-	console.log('aver si muy vergasx2', tallyId, tallyCount);
 
 	const respData = await event.platform?.env.DB.prepare(
 		'UPDATE tally_count SET amount = ? WHERE user_id = ? AND tally_name = ?'
