@@ -1,10 +1,10 @@
-import type { RequestEvent } from '@sveltejs/kit';
+import type { RequestHandler } from './$types';
 
-export async function GET(event: RequestEvent): Promise<Response> {
-	const tallyId = event.url.searchParams.get('tallyId');
-	const userId = event.url.searchParams.get('userId');
+export const GET: RequestHandler = async ({ url, platform }) => {
+	const tallyId = url.searchParams.get('tallyId');
+	const userId = url.searchParams.get('userId');
 	console.log('ke pedo', tallyId, userId);
-	const respData = await event.platform?.env.DB.prepare(
+	const respData = await platform?.env.DB.prepare(
 		'SELECT * FROM tally_count WHERE tally_name = ? AND user_id = ?'
 	)
 		.bind(tallyId, userId)
@@ -15,12 +15,14 @@ export async function GET(event: RequestEvent): Promise<Response> {
 	// 	tallyCount=   123
 	// }
 	return new Response(JSON.stringify(respData));
-}
+};
 
-export async function POST(event: RequestEvent): Promise<Response> {
-	const { tallyId, userId, tallyCount } = event.params;
+export const POST: RequestHandler = async ({ url, platform }) => {
+	const tallyId = url.searchParams.get('tallyId');
+	const userId = url.searchParams.get('userId');
+	const tallyCount = url.searchParams.get('tallyCount');
 
-	const respData = await event.platform?.env.DB.prepare(
+	const respData = await platform?.env.DB.prepare(
 		'UPDATE tally_count SET amount = ? WHERE user_id = ? AND tally_name = ?'
 	)
 		.bind(tallyCount, userId, tallyId)
@@ -31,4 +33,4 @@ export async function POST(event: RequestEvent): Promise<Response> {
 	// 	tallyCount=   123
 	// }
 	return new Response(JSON.stringify(respData));
-}
+};
